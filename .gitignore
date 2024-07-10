@@ -485,7 +485,6 @@ $RECYCLE.BIN/
 
 # ---
 *.bak
-appsettings.json
 appsettings.Development.json
 appsettings.Production.json
 bundle.js
