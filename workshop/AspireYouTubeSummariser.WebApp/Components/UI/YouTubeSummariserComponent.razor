@@ -1,0 +1,53 @@
+@using AspireYouTubeSummariser.WebApp.Clients
+@inject IApiAppClient ApiApp
+
+<div id="container">
+    <div class="row">
+        <div class="mb-3">
+            <label for="question">Question : </label>
+            <input id="question" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3">
+            <button type="button" class="btn btn-primary" @onclick="AskAsync">제출</button>
+            <button type="button" class="btn btn-secondary" @onclick="ClearAsync">초기화</button>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <label for="result">Result:</label>
+            <textarea class="form-control" id="result" rows="5" placeholder="결과를 표시합니다" readonly>@summaryResult</textarea>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    private string? question { get; set; }
+    private string? summaryResult { get; set; }
+
+    private async Task AskAsync()
+    {
+        try
+        {
+            var result = await ApiApp.MelonChartAsync(question);
+            this.summaryResult = result;
+        }
+        catch (Exception ex)
+        {
+            this.summaryResult = ex.Message;
+        }
+    }
+
+    private async Task ClearAsync()
+    {
+        this.question = null;
+        this.summaryResult = null;
+
+        await Task.CompletedTask;
+    }
+}

@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <InvariantGlobalization>true</InvariantGlobalization>
+
+    <AssemblyName>AspireYouTubeSummariser.ApiApp</AssemblyName>
+    <RootNamespace>AspireYouTubeSummariser.ApiApp</RootNamespace>
+    <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aliencube.YouTubeSubtitlesExtractor" Version="$(YouTubeSubtitlesExtractorVersion)" />
+    <PackageReference Include="Azure.AI.OpenAI" Version="1.*-*" />
+    <PackageReference Include="MelonChart.NET" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="$(AspNetCoreVersion)" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.15.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Connectors.OpenAI" Version="1.15.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Plugins.Core" Version="1.15.0-alpha" />
+    <PackageReference Include="Microsoft.SemanticKernel.Plugins.Memory" Version="1.15.0-alpha" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="$(SwashbuckleVersion)" />
+    <PackageReference Include="System.Linq.Async" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="$(RunWorkingDirectory)\Prompts\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

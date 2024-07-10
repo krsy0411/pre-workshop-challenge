@@ -33,7 +33,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 아래 액션 추가 👇
+        # 아래 액션 추가 👇
       - name: Install .NET 8 SDK
         uses: actions/setup-dotnet@v4
         with:
