@@ -20,7 +20,7 @@ using Microsoft.SemanticKernel.Memory;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// builder.AddServiceDefaults();
+builder.AddServiceDefaults();
 
 builder.Services.AddHttpClient<IYouTubeVideo, YouTubeVideo>("youtube");
 builder.Services.AddScoped<OpenAIClient>(sp =>
@@ -88,7 +88,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// app.MapDefaultEndpoints();
+app.MapDefaultEndpoints();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
