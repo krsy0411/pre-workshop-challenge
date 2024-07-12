@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" Version="$(AspireVersion)" />
-    <PackageReference Include="Aspire.Hosting.Redis" Version="8.0.2" />
+    <PackageReference Include="Aspire.Hosting.Redis" Version="$(AspireVersion)" />
   </ItemGroup>
 
   <ItemGroup>
